@@ -1,7 +1,8 @@
 {
-  "name": "ts-lib-starter",
+  "name": "node-icons",
   "version": "1.0.0",
   "license": "MIT",
+  "author": "JSGandalf",
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
