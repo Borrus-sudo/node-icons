@@ -1,4 +1,4 @@
-<!-- DO NOT REMOVE - contributor_list:data:start:["Borrus-sudo", "dependabot[bot]"]:end -->
+<!-- DO NOT REMOVE - contributor_list:data:start:["Borrus-sudo"]:end -->
 
 # 🍕 node-icons
 
