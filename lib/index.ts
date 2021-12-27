@@ -40,8 +40,8 @@ export default function (
       }
       return appendAttributes(rawSvg, styles);
     },
-    iconify(text: string, styles, regex: RegExp = /::(.*?)::/g) {
-      return replaceAsync(text, regex, async (_fullText, payload) => {
+    async iconify(text: string, styles, regex: RegExp = /::(.*?)::/g) {
+      return await replaceAsync(text, regex, async (_fullText, payload) => {
         return await main.getIcons(payload, styles);
       });
     },
