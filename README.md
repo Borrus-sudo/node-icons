@@ -21,7 +21,5 @@ _Please note: All contributions are taken under the MIT license_
 
 - **[@Borrus-sudo](https://github.com/Borrus-sudo)**
 
-- **[@dependabot[bot]](https://github.com/apps/dependabot)**
-
 <!-- DO NOT REMOVE - contributor_list:end -->
 <!-- prettier-ignore-end -->
