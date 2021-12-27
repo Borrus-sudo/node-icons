@@ -1,2 +1,1 @@
-import helloWorld from "./foo"
-helloWorld()
+console.log("Hello World!");
