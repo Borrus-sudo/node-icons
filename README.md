@@ -40,7 +40,7 @@ The object returned by it has 2 methods
 
 ## Installation
 
-`npm i @iconify/json` to install all icons or `npm i @iconify-json/<YOUR ICON COLLETION>` to install a specific icon set.
+`npm i @iconify/json` to install all icons or `npm i @iconify-json/<collection-id>` to install a specific icon set.
 
 ## 🎉 Contributing
 
