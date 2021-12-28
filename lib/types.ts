@@ -1,6 +1,6 @@
 export type Config = {
   installPkg: boolean;
-  alias: [];
+  alias: Map<string, string>;
   prefix: string;
   separator: string;
 };

@@ -9,13 +9,16 @@ import { Config } from "./types";
 export default function (
   config: Config = {
     installPkg: true,
-    alias: [],
+    alias: new Map(),
     prefix: "",
     separator: ":",
   },
 ) {
   const main = {
     async getIcons(iconName, styles, base64: boolean): Promise<string> {
+      if (config.alias.has(iconName)) {
+        iconName = config.alias.get(iconName);
+      }
       iconName = config.prefix + iconName;
       const [grp, icon] = iconName.split(config.separator);
       let possiblePkgPath1 = "@iconify/json/json/" + grp;
