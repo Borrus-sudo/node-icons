@@ -8,7 +8,6 @@ import { Config } from "./types";
 export default function (
   config: Config = {
     installPkg: true,
-    beforeEach() {},
     alias: [],
     prefix: "",
     separator: ":",
