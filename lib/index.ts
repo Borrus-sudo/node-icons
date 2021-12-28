@@ -3,6 +3,7 @@ import {
   installedPkg,
   pkgExists,
   replaceAsync,
+  encodeSvg,
 } from "./utils";
 import { Config } from "./types";
 export default function (
@@ -14,7 +15,7 @@ export default function (
   },
 ) {
   const main = {
-    async getIcons(iconName, styles) {
+    async getIcons(iconName, styles, base64: boolean): Promise<string> {
       iconName = config.prefix + iconName;
       const [grp, icon] = iconName.split(config.separator);
       let possiblePkgPath1 = "@iconify/json/json/" + grp;
@@ -37,12 +38,29 @@ export default function (
           }
         }
       }
-      return appendAttributes(rawSvg, styles);
+      if (rawSvg === "") return base64 ? `data:image/svg+xml;utf8,}` : rawSvg;
+
+      const result = appendAttributes(rawSvg, styles);
+      return base64 ? `data:image/svg+xml;utf8,${encodeSvg(result)}}` : result;
     },
-    async iconify(text: string, styles, regex: RegExp = /::(.*?)::/g) {
-      return await replaceAsync(text, regex, async (_fullText, payload) => {
-        return await main.getIcons(payload, styles);
-      });
+    async iconify(
+      text: string,
+      options: { styles: object; base64: boolean },
+      regex: RegExp = /::(.*?)::/g,
+    ): Promise<string> {
+      const result = await replaceAsync(
+        text,
+        regex,
+        async (fullText, payload) => {
+          const iconVal = await main.getIcons(
+            payload,
+            options.styles,
+            options.base64,
+          );
+          return iconVal === "" ? fullText : iconVal;
+        },
+      );
+      return result;
     },
   };
   return main;
