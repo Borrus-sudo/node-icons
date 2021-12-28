@@ -1,6 +1,6 @@
 import { installPackage } from "@antfu/install-pkg";
 
-const mode = process.env.NODE_ENV || "developement";
+const mode = process.env.NODE_ENV || "development";
 
 export function pkgExists(pkgPath): boolean {
   try {
@@ -18,7 +18,7 @@ export async function installedPkg(
   if (pkgExists(pkgPath)) {
     return flag;
   }
-  if (installPkg && mode !== "developement") {
+  if (installPkg && mode !== "development") {
     try {
       await installPackage(pkgPath, { silent: true });
       return true;

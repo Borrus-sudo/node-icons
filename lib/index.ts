@@ -52,12 +52,12 @@ export default function (
         text,
         regex,
         async (fullText, payload) => {
-          const iconVal = await main.getIcons(
+          const iconSvg = await main.getIcons(
             payload,
             options.styles,
             options.base64,
           );
-          return iconVal === "" ? fullText : iconVal;
+          return iconSvg === "" ? fullText : iconSvg;
         },
       );
       return result;
