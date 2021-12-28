@@ -13,7 +13,7 @@
 ```ts
 import Icons from "node-icons";
 const icons = Icons({
-  // will install the called icon set of the called icon if it is not already installed
+  // auto installs the collection set of an icon if not already installed
   installPkg: true,
   alias: new Map(),
   prefix: "lucide",
