@@ -44,6 +44,8 @@ type returnVal = {
 
 ## Installation
 
+`npm i node-icons` or `yarn add node-icons` to install.
+
 `npm i @iconify/json` to install all icons or `npm i @iconify-json/<collection-id>` to install a specific icon set.
 
 ## 🎉 Contributing
