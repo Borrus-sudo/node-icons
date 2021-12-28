@@ -29,13 +29,17 @@ The `Icon({})` function expects an object of type [config](./lib/types.ts).
 The object returned by it has 2 methods
 
 ```ts
-{
-    getIcons(iconName: any, styles: any, base64: boolean): Promise<string>;
-    iconify(text: string, options: {
-        styles: object;
-        base64: boolean;
-    }, regex?: RegExp): Promise<string>;
-}
+type returnVal = {
+  getIcons(iconName: any, styles: any, base64: boolean): Promise<string>;
+  iconify(
+    text: string,
+    options: {
+      styles: object;
+      base64: boolean;
+    },
+    regex?: RegExp,
+  ): Promise<string>;
+};
 ```
 
 ## Installation
