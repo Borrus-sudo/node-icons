@@ -24,4 +24,19 @@ describe("it should pass the tests", () => {
       `<svg> <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></g></svg>`,
     );
   });
+  it("tests further functionality", async () => {
+    const icons = Icons({
+      installPkg: true,
+      alias: new Map(),
+      prefix: "lucide",
+      separator: ":",
+    });
+    const result = await icons.iconify("This is cool right! ::activity::", {
+      styles: {},
+      base64: false,
+    });
+    expect(result).toBe(
+      `This is cool right! <svg> <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></g></svg>`,
+    );
+  });
 });
