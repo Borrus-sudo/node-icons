@@ -1,6 +1,6 @@
 <!-- DO NOT REMOVE - contributor_list:data:start:["Borrus-sudo"]:end -->
 
-# 🍕 node-icons
+# 🍱 node-icons
 
 [![All Contributors](https://img.shields.io/github/contributors/Borrus-sudo/node-icons?color=orange)](#contributors-)
 ![License](https://img.shields.io/github/license/Borrus-sudo/node-icons?label=License)
