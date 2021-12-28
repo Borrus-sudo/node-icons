@@ -13,7 +13,7 @@
 ```ts
 import Icons from "node-icons";
 const icons = Icons({
-  // will install the called icon pkg if it is not installed
+  // will install the called icon set of the called icon if it is not already installed
   installPkg: true,
   alias: new Map(),
   prefix: "lucide",
@@ -24,6 +24,23 @@ const result = await icons.iconify("This is cool right! ::activity::", {
   base64: false,
 });
 ```
+
+The `Icon({})` function expects an object of type [config](./lib/types.ts).
+The object returned by it has 2 methods
+
+```ts
+ {
+    getIcons(iconName: any, styles: any, base64: boolean): Promise<string>;
+    iconify(text: string, options: {
+        styles: object;
+        base64: boolean;
+    }, regex?: RegExp): Promise<string>;
+}
+```
+
+## Installation
+
+`npm i @iconify/json` to install all icons or `npm i @iconify-json/<YOUR ICON COLLETION>` to install a specific icon set.
 
 ## 🎉 Contributing
 
