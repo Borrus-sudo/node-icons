@@ -8,6 +8,23 @@
 ![Stars](https://img.shields.io/github/stars/Borrus-sudo/node-icons)
 ![Forks](https://img.shields.io/github/forks/Borrus-sudo/node-icons)
 
+## Usage
+
+```ts
+import Icons from "node-icons";
+const icons = Icons({
+  // will install the called icon pkg if it is not installed
+  installPkg: true,
+  alias: new Map(),
+  prefix: "lucide",
+  separator: ":",
+});
+const result = await icons.iconify("This is cool right! ::activity::", {
+  styles: {},
+  base64: false,
+});
+```
+
 ## 🎉 Contributing
 
 Contributions are welcome! Whether it is a small documentation change or a breaking feature, we welcome it!
