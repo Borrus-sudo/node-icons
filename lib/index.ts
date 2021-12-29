@@ -37,7 +37,37 @@ export default function (
         }
       }
       if (pkgPath.length > 0) {
-        const { icons } = require(possiblePkgPath1);
+        const { icons } = require(pkgPath);
+        for (let grpIcon of Object.keys(icons)) {
+          if (grpIcon == icon) {
+            rawSvg = icons[grpIcon].body || "";
+          }
+        }
+      }
+      if (rawSvg === "") return rawSvg;
+      return appendAttributes(rawSvg, styles, base64);
+    },
+    getIconsSync(iconName, styles, base64: boolean): string {
+      if (config.alias.has(iconName)) {
+        iconName = config.alias.get(iconName);
+      }
+      if (
+        config.prefix !== "" &&
+        !iconName.startsWith(config.prefix + config.separator)
+      )
+        iconName = config.prefix + config.separator + iconName;
+      const [grp, icon] = iconName.split(config.separator);
+      let possiblePkgPath1 = "@iconify/json/json/" + grp;
+      let possiblePkgPath2 = "@iconify-json/" + grp;
+      let pkgPath = "";
+      let rawSvg = "";
+      if (pkgExists(possiblePkgPath1)) {
+        pkgPath = possiblePkgPath1;
+      } else if (pkgExists(possiblePkgPath2)) {
+        pkgPath = possiblePkgPath2;
+      }
+      if (pkgPath.length > 0) {
+        const { icons } = require(pkgPath);
         for (let grpIcon of Object.keys(icons)) {
           if (grpIcon == icon) {
             rawSvg = icons[grpIcon].body || "";

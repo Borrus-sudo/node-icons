@@ -35,6 +35,7 @@ The object returned by it has 2 methods
 ```ts
 type returnVal = {
   getIcons(iconName: any, styles: any, base64: boolean): Promise<string>;
+  getIconsSync(iconName: any, styles: any, base64: boolean): string;
   iconify(
     text: string,
     options: {

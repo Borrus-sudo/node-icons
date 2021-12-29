@@ -17,7 +17,7 @@ export async function installedPkg(
   if (pkgExists(pkgPath)) {
     return true;
   }
-  if (installPkg && mode !== "development") {
+  if (installPkg && mode === "development") {
     try {
       await installPackage(pkgPath, { silent: true });
       return true;
