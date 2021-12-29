@@ -18,7 +18,10 @@ export default function (
       if (config.alias.has(iconName)) {
         iconName = config.alias.get(iconName);
       }
-      if (config.prefix !== "")
+      if (
+        config.prefix !== "" &&
+        !iconName.startsWith(config.prefix + config.separator)
+      )
         iconName = config.prefix + config.separator + iconName;
       const [grp, icon] = iconName.split(config.separator);
       let possiblePkgPath1 = "@iconify/json/json/" + grp;
