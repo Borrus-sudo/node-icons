@@ -40,7 +40,7 @@ export function appendAttributes(
   });
   let finalSvg = `<${tag}`;
   finalSvg += base64
-    ? ` styles="${stylesProperty}" src="data:image/svg+xml;utf8,${encodeSvg(
+    ? ` style="${stylesProperty}" src="data:image/svg+xml;utf8,${encodeSvg(
         svg,
       )}">`
     : ` ${stylesProperty}> ${svg}`;
