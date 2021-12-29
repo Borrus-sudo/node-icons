@@ -46,6 +46,7 @@ type returnVal = {
   ): Promise<string>;
 };
 ```
+_With `getIconsSync`, auto installing icons is not possible._
 
 ## Installation
 
