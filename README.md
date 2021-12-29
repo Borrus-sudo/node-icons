@@ -20,7 +20,11 @@ const icons = Icons({
   separator: ":",
 });
 const result = await icons.iconify("This is cool right! ::activity::", {
-  styles: {},
+  // The `styles` object's key value pair are appended as attributes to the svg
+  styles: {
+    width: 100,
+    color: `"red"`, // it is important to have quotes for those values which need them like color="red"
+  },
   base64: false,
 });
 ```
