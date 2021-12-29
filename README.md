@@ -10,6 +10,8 @@
 
 ## Usage
 
+Checkout its [unit tests](./test/index.test.ts) to see complete usage with output!
+
 ```ts
 import Icons from "node-icons";
 const icons = Icons({
