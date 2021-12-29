@@ -14,9 +14,8 @@ export async function installedPkg(
   pkgPath: string,
   installPkg: boolean,
 ): Promise<boolean> {
-  let flag = true;
   if (pkgExists(pkgPath)) {
-    return flag;
+    return true;
   }
   if (installPkg && mode !== "development") {
     try {
@@ -25,18 +24,27 @@ export async function installedPkg(
     } catch (e) {
       return false;
     }
-  } else {
-    flag = false;
   }
-  return flag;
+  return false;
 }
-export function appendAttributes(svg, styles): string {
-  let finalSvg = `<svg`;
+export function appendAttributes(
+  svg: string,
+  styles: Object,
+  base64: boolean,
+): string {
+  let stylesProperty = ``;
+  let tag = base64 ? "img" : "svg";
   Object.entries(styles).forEach(([key, value]) => {
-    finalSvg += ` ${key}="${value}"`;
+    if (base64) stylesProperty += `${key}:${value};`;
+    else stylesProperty += `${key}=${value}`;
   });
-  finalSvg += `> ${svg}`;
-  finalSvg += `</svg>`;
+  let finalSvg = `<${tag}`;
+  finalSvg += base64
+    ? ` styles="${stylesProperty}" src="data:image/svg+xml;utf8,${encodeSvg(
+        svg,
+      )}">`
+    : ` ${stylesProperty}> ${svg}`;
+  finalSvg += `</${tag}>`;
   return finalSvg;
 }
 
@@ -51,7 +59,7 @@ export async function replaceAsync(str, regex, asyncFn) {
 }
 
 // https://bl.ocks.org/jennyknuth/222825e315d45a738ed9d6e04c7a88d0
-export function encodeSvg(svg: string) {
+function encodeSvg(svg: string) {
   return svg
     .replace(
       "<svg",

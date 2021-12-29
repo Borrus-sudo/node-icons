@@ -1,11 +1,10 @@
+import { Config } from "./types";
 import {
   appendAttributes,
   installedPkg,
   pkgExists,
   replaceAsync,
-  encodeSvg,
 } from "./utils";
-import { Config } from "./types";
 export default function (
   config: Config = {
     installPkg: true,
@@ -42,10 +41,8 @@ export default function (
           }
         }
       }
-      if (rawSvg === "") return base64 ? `data:image/svg+xml;utf8,}` : rawSvg;
-
-      const result = appendAttributes(rawSvg, styles);
-      return base64 ? `data:image/svg+xml;utf8,${encodeSvg(result)}}` : result;
+      if (rawSvg === "") return rawSvg;
+      return appendAttributes(rawSvg, styles, base64);
     },
     async iconify(
       text: string,
