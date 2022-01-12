@@ -36,7 +36,7 @@ export function appendAttributes(
   let tag = base64 ? "img" : "svg";
   Object.entries(styles).forEach(([key, value]) => {
     if (base64) stylesProperty += `${key}:${value};`;
-    else stylesProperty += `${key}=${value}`;
+    else stylesProperty += `${key}=${value} `;
   });
   let finalSvg = `<${tag}`;
   finalSvg += base64
