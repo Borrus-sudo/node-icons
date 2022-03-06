@@ -15,15 +15,15 @@ export default function (
 ) {
   const main = {
     async getIcons(iconName, styles, base64: boolean): Promise<string> {
-      if (config.alias.has(iconName)) {
-        iconName = config.alias.get(iconName);
+      if (config?.alias.has(iconName)) {
+        iconName = config?.alias.get(iconName);
       }
       if (
-        config.prefix !== "" &&
-        !iconName.startsWith(config.prefix + config.separator)
+        config?.prefix !== "" &&
+        !iconName.startsWith(config?.prefix + config?.separator)
       )
-        iconName = config.prefix + config.separator + iconName;
-      const [grp, icon] = iconName.split(config.separator);
+        iconName = config?.prefix + config?.separator + iconName;
+      const [grp, icon] = iconName.split(config?.separator);
       let possiblePkgPath1 = "@iconify/json/json/" + grp;
       let possiblePkgPath2 = "@iconify-json/" + grp;
       let pkgPath = "";
@@ -31,7 +31,7 @@ export default function (
       if (pkgExists(possiblePkgPath1)) {
         pkgPath = possiblePkgPath1;
       } else {
-        const res = await installedPkg(possiblePkgPath2, config.installPkg);
+        const res = await installedPkg(possiblePkgPath2, config?.installPkg);
         if (res) {
           pkgPath = possiblePkgPath2;
         }
@@ -48,15 +48,15 @@ export default function (
       return appendAttributes(rawSvg, styles, base64);
     },
     getIconsSync(iconName, styles, base64: boolean): string {
-      if (config.alias.has(iconName)) {
-        iconName = config.alias.get(iconName);
+      if (config?.alias.has(iconName)) {
+        iconName = config?.alias.get(iconName);
       }
       if (
-        config.prefix !== "" &&
-        !iconName.startsWith(config.prefix + config.separator)
+        config?.prefix !== "" &&
+        !iconName.startsWith(config?.prefix + config?.separator)
       )
-        iconName = config.prefix + config.separator + iconName;
-      const [grp, icon] = iconName.split(config.separator);
+        iconName = config?.prefix + config?.separator + iconName;
+      const [grp, icon] = iconName.split(config?.separator);
       let possiblePkgPath1 = "@iconify/json/json/" + grp;
       let possiblePkgPath2 = "@iconify-json/" + grp;
       let pkgPath = "";
