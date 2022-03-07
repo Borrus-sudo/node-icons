@@ -7,6 +7,7 @@ specifiers:
   '@iconify/json': ^1.1.448
   '@types/jest': ^27.0.3
   '@types/node': ^16.11.12
+  defu: ^5.0.1
   husky: ^7.0.0
   jest: ^27.4.3
   lint-staged: ^12.1.2
@@ -17,6 +18,7 @@ specifiers:
 
 dependencies:
   '@antfu/install-pkg': 0.1.0
+  defu: 5.0.1
 
 devDependencies:
   '@commitlint/cli': 15.0.0
@@ -1460,6 +1462,10 @@ packages:
     resolution: {integrity: sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /defu/5.0.1:
+    resolution: {integrity: sha512-EPS1carKg+dkEVy3qNTqIdp2qV7mUP08nIsupfwQpz++slCVRw7qbQyWvSTig+kFPwz2XXp5/kIIkH+CwrJKkQ==}
+    dev: false
 
   /delayed-stream/1.0.0:
     resolution: {integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=}
