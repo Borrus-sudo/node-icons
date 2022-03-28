@@ -45,6 +45,6 @@
   },
   "dependencies": {
     "@antfu/install-pkg": "^0.1.0",
-    "defu": "^5.0.1"
+    "defu": "^6.0.0"
   }
 }

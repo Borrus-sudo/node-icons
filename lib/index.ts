@@ -5,11 +5,11 @@ import {
   pkgExists,
   replaceAsync,
 } from "./utils";
-const defu = require("defu");
+import { createDefu } from "defu";
 
 export default function (config?: Partial<Config>) {
-  const ext = defu.extend((obj, key, value) => {
-    console.log(obj[key], value);
+  const ext = createDefu((obj, key, value) => {
+    //@ts-ignore
     if (obj[key] instanceof Map) {
       return true;
     }
