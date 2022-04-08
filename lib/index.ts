@@ -4,11 +4,9 @@ import {
   installedPkg,
   pkgExists,
   replaceAsync,
+  require,
 } from "./utils";
 import { createDefu } from "defu";
-import { createRequire } from "module";
-
-const require = createRequire(import.meta.url);
 
 export default function (config?: Partial<Config>) {
   const ext = createDefu((obj, key, value) => {
