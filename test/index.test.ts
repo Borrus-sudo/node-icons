@@ -1,4 +1,5 @@
-import Icons from "../lib";
+import Icons from "../out/index.js";
+
 describe("it should pass the tests", () => {
   it("tests the functionality of iconify", async () => {
     expect(2).toEqual(2);
