@@ -18,4 +18,5 @@ jobs:
         with:
           version: 6.15.1
       - run: pnpm i
+      - run: pnpm build
       - run: pnpm test
