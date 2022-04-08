@@ -1,12 +1,12 @@
+import { createDefu } from "defu";
 import { Config } from "./types";
 import {
   appendAttributes,
   installedPkg,
   pkgExists,
   replaceAsync,
-  require,
+  requireIso,
 } from "./utils";
-import { createDefu } from "defu";
 
 export default function (config?: Partial<Config>) {
   const ext = createDefu((obj, key, value) => {
@@ -45,7 +45,7 @@ export default function (config?: Partial<Config>) {
         }
       }
       if (pkgPath.length > 0) {
-        const { icons } = require(pkgPath);
+        const { icons } = requireIso(pkgPath);
         for (let grpIcon of Object.keys(icons)) {
           if (grpIcon == icon) {
             rawSvg = icons[grpIcon].body || "";
@@ -75,7 +75,7 @@ export default function (config?: Partial<Config>) {
         pkgPath = possiblePkgPath2;
       }
       if (pkgPath.length > 0) {
-        const { icons } = require(pkgPath);
+        const { icons } = requireIso(pkgPath);
         for (let grpIcon of Object.keys(icons)) {
           if (grpIcon == icon) {
             rawSvg = icons[grpIcon].body || "";

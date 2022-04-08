@@ -3,11 +3,12 @@ import { createRequire } from "module";
 
 const mode = process.env.NODE_ENV || "development";
 
-export const require = createRequire(import.meta.url);
+export const requireIso =
+  typeof require !== "undefined" ? require : createRequire(import.meta.url);
 
 export function pkgExists(pkgPath): boolean {
   try {
-    require.resolve(pkgPath);
+    requireIso.resolve(pkgPath);
     return true;
   } catch (e) {
     return false;
