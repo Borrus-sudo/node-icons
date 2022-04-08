@@ -1,5 +1,7 @@
 import { installPackage } from "@antfu/install-pkg";
+import { createRequire } from "module";
 
+const require = createRequire(import.meta.url);
 const mode = process.env.NODE_ENV || "development";
 
 export function pkgExists(pkgPath): boolean {
