@@ -10,7 +10,6 @@ export function pkgExists(pkgPath): boolean {
     requireIso.resolve(pkgPath);
     return true;
   } catch (e) {
-    console.log(e);
     return false;
   }
 }
